@@ -1,0 +1,19 @@
+.bg-primary{
+    background-color: black!important;
+}
+#Loginpage{
+    background-color: #f96332!important;
+}
+@media screen and (max-width: 991px){
+    .sidebar-collapse .navbar-collapse:before{
+        background: black!important;
+    }
+    iframe{
+        width: 330px!important;
+    }
+}
+@media screen and (max-width: 760px){
+    iframe{
+        width: 540px!important;
+    }
+}
