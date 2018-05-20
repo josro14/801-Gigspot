@@ -6,6 +6,7 @@
 
 body {
   padding-top: 54px;
+  font-family:"Montserrat", "Helvetica Neue", Arial, sans-serif;
 }
 
 @media (min-width: 992px) {
@@ -22,5 +23,12 @@ body {
   margin-bottom: 30px;
 }
 #listingshead{
+  font-weight: 700!important;
   text-align: center!important;
+}
+.listing,.page-link{
+  color: #f96332!important;
+}
+.bg-dark{
+  background-color: black!important;
 }
