@@ -50,19 +50,41 @@ $(document).ready(function() {
     });
 });
 
-// save user edits.
+
+
 function saveEdits() {
 
     //get the editable element
-    var editElem = document.getElementById("edit");
-    
+    var editName = document.getElementById("bandName");
+    var editBio = document.getElementById('bandBio');
+   
     //get the edited element content
-    var userVersion = editElem.innerHTML;
+    var bandName = editName.innerHTML;
+    var bandBio = editBio.innerHTML;
+    var editPic = ($('img').attr('src'));
+    
     
     //save the content to local storage
-    localStorage.userEdits = userVersion;
+    localStorage.editbandName = bandName;
+    localStorage.editbandBio = bandBio; 
+    localStorage.setItem('bandPic', editPic);
+    console.log(editPic);
+    
+
     
     //write a confirmation to the user
-    document.getElementById("update").innerHTML="Edits saved!";
+    alert('Your changes were saved!');
+    
+    }
+    function checkEdits() {
+        //find out if the user has previously saved edits
+        
+        document.getElementById("bandName").innerHTML = localStorage.editbandName;
+  
+       
+        document.getElementById('bandBio').innerHTML = localStorage.editbandBio;
+    
+       
+        $('img').attr('src', localStorage.getItem('bandPic'));
     
 }
