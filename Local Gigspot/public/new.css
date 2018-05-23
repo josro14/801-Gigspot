@@ -80,3 +80,11 @@ img {
 .btn {
     z-index: 3;
 }
+.wrap{
+    margin: 0 auto;
+}
+#changebandName,#changebandBio{
+    background: transparent;
+    border: transparent;
+    color: white;
+}

@@ -89,12 +89,10 @@
                 
                         <!-- Band Name And Bio -->
          
-                    <h3 class="title" id="bandName" contenteditable="true">Your Band Name Goes Here</h3>
+                    <h3 class="title" id="bandName" contenteditable="false">Your Band Name Goes Here <button id="changebandName"><i class="fa fa-pencil" aria-hidden="true"></i></h3>
                     <p class="category">Band</p>
-                    <div class="content" contenteditable="true" id="bandBio">
-                        Your Band Bio Goes Here
-                    </div>
-                    <input type="button" value="save my edits" onclick="saveEdits()"/>
+                    <div class="content" contenteditable="false" id="bandBio">Your Band Bio Goes Here <button id="changebandBio"><i class="fa fa-pencil" aria-hidden="true"></i></div>
+                    <!-- <input type="button" value="save my edits" onclick="saveEdits()"/> -->
                         <!--  -->
                 </div>
             </div>
@@ -116,14 +114,13 @@
                 <h5 class="description">We are a garage band from bountiful....</h5>
                 <h5 class="title">Listen to a sample of our Music</h5>
                 <div class="row">
-                    <div class="col-4"></div>
-                    <div class="col-4">
-                        <audio controls class="description">
-                            <source src="horse.mp3" type="audio/mpeg">
-                        Your browser does not support the audio element.
-                        </audio><button type="button" class="btn btn-danger">+</button>
+    <!-- Band can add their music -->
+                    <div class="wrap">
+                        <div class="col-12" id="musicSample">
+                            <button type="button" class="btn btn-danger" id="addMusicsample">Add A Music Sample +</button>
+                        </div>
                     </div>
-                    <div class="col-4"></div>
+                   
                 </div>
                 <div class="row">
                     <!-- Tab panes -->
