@@ -76,15 +76,5 @@ function saveEdits() {
     alert('Your changes were saved!');
     
     }
-    function checkEdits() {
-        //find out if the user has previously saved edits
-        
-        document.getElementById("bandName").innerHTML = localStorage.editbandName;
-  
-       
-        document.getElementById('bandBio').innerHTML = localStorage.editbandBio;
     
-       
-        $('img').attr('src', localStorage.getItem('bandPic'));
-    
-}
+
