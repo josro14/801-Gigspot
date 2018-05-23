@@ -76,3 +76,7 @@ img {
     text-decoration: none;
     cursor: pointer;
 }
+
+.btn {
+    z-index: 3;
+}
