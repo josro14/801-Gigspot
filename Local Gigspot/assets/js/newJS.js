@@ -76,5 +76,16 @@ function saveEdits() {
     alert('Your changes were saved!');
     
     }
-    
+$("#addMusicsample").on('click', addnewMusic);
+    function addnewMusic(){
+        let newBandmusic = $('<audio controls class="description"><source src="horse.mp3" type="audio/mpeg">Your browser does not support the audio element.</audio>')
+    $('#musicSample').append(newBandmusic);
+    };
+
+$('#changebandName').on('click', function(){
+    $("#bandName").attr("contenteditable","true");
+})
+$('#changebandBio').on('click', function(){
+    $("#bandBio").attr("contenteditable","true");
+})
 
