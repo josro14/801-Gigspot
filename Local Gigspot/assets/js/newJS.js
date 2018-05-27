@@ -1,4 +1,24 @@
-var img = ($('img').attr('src'));
+// Profile Changes
+
+// profile buttons
+$("#addMusicsample").on('click', addnewMusic);
+    function addnewMusic(){
+        let newBandmusic = $('<audio controls class="description"><source src="horse.mp3" type="audio/mpeg">Your browser does not support the audio element.</audio>')
+    $('#musicSample').append(newBandmusic);
+};
+$('#changebandName').on('click', function(){
+    $("#bandName").attr("contenteditable","true");
+})
+$('#changebandBio').on('click', function(){
+    $("#bandBio").attr("contenteditable","true");
+})
+$('#changebandAbout').on('click', function(){
+    $('#bandAbout').attr('contenteditable', 'true');
+})
+
+
+
+// Modal control
 console.log(img);
 // Get the modal
 var modal = document.getElementById('myModal');
@@ -25,18 +45,18 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
-$(document).ready(function() {
 
-    
+
+
+// changes to photos
+$(document).ready(function() {
     var readURL = function(input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
-
             reader.onload = function (e) {
                 $('#profile-picture').attr('src', e.target.result);
                 console.log(e);
             }
-    
             reader.readAsDataURL(input.files[0]);
             console.log(input.files);
         }
@@ -44,7 +64,6 @@ $(document).ready(function() {
     $(".file-upload").on('change', function(){
         readURL(this);
     });
-    
     $(".photo").on('click', function() {
        $(".file-upload").click();
     });
@@ -52,6 +71,7 @@ $(document).ready(function() {
 
 
 
+// For test purposes, saving locally
 function saveEdits() {
 
     //get the editable element
@@ -75,19 +95,5 @@ function saveEdits() {
     //write a confirmation to the user
     alert('Your changes were saved!');
     
-    }
-$("#addMusicsample").on('click', addnewMusic);
-    function addnewMusic(){
-        let newBandmusic = $('<audio controls class="description"><source src="horse.mp3" type="audio/mpeg">Your browser does not support the audio element.</audio>')
-    $('#musicSample').append(newBandmusic);
-    };
+}
 
-$('#changebandName').on('click', function(){
-    $("#bandName").attr("contenteditable","true");
-})
-$('#changebandBio').on('click', function(){
-    $("#bandBio").attr("contenteditable","true");
-})
-$('#changebandAbout').on('click', function(){
-    $('#bandAbout').attr('contenteditable', 'true');
-})
