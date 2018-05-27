@@ -33,7 +33,7 @@ $(document).ready(function() {
             var reader = new FileReader();
 
             reader.onload = function (e) {
-                $('#profileImage').attr('src', e.target.result);
+                $('#profile-picture').attr('src', e.target.result);
                 console.log(e);
             }
     
@@ -88,4 +88,6 @@ $('#changebandName').on('click', function(){
 $('#changebandBio').on('click', function(){
     $("#bandBio").attr("contenteditable","true");
 })
-
+$('#changebandAbout').on('click', function(){
+    $('#bandAbout').attr('contenteditable', 'true');
+})

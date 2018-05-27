@@ -1,39 +1,32 @@
-var express = require('express');
+var express = require("express");
+var bodyParser = require("body-parser");
+
+var PORT = process.env.PORT || 8080;
 
 var app = express();
-var port = process.env.PORT || 3000;
 
-var bodyParser = require('body-parser');
-var exphbs = require('express-handlebars');
+// Serve static content for the app from the "public" directory in the application directory.
+app.use(express.static("public"));
 
-
-app.use(express.static(__dirname + '/public'));
-
-//For BodyParser
+// parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
+
+// parse application/json
 app.use(bodyParser.json());
 
-//Models
-var models = require('./app/models');
+// Set Handlebars.
+var exphbs = require("express-handlebars");
 
-//Sync Database
-models.sequelize.sync().then(function () {
-    console.log("Alright! Database is looking good!")
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
 
-}).catch(function (err) {
-    console.log(err, 'Something is not right with the database...')
+// Import routes and give the server access to them.
+var routes = require("./controllers/burgersController.js");
 
-});
+app.use(routes);
 
-//For handlebars
-app.set('views', './app/views');
-app.engine('hbs', exphbs({
-    extname: '.hbs'
-}));
-app.set('view engine', '.hbs');
-
-app.listen(port, function(err){
-  if (!err)
-    console.log(`App is running on localhost: ${port}...`);
-  else console.log(err)
+// Start our server so that it can begin listening to client requests.
+app.listen(PORT, function() {
+  // Log (server-side) when our server has started
+  console.log("Server listening on: http://localhost:" + PORT);
 });
