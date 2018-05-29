@@ -39,6 +39,11 @@ img {
         width: 540px!important;
     }
 }
+@media screen and (max-width: 760px){
+    .gigspot-main{
+      visibility: hidden;
+    }
+}
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */
@@ -93,4 +98,22 @@ img {
 .listing-img {
     border-radius: 10px;
     box-shadow: 0px 10px 25px 0px rgba(0, 0, 0, 0.3);
+}
+.fa{
+    color: white;
+}
+#changebandName,#changebandBio{
+    background-color: transparent;
+    border-color: transparent;
+}
+#changebandAbout{
+    background-color: transparent;
+    border-color: transparent;
+}
+#Aboutband{
+    color: black;
+}
+.wrap{
+    margin-left:auto;
+    margin-right:auto;
 }

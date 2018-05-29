@@ -1,0 +1,39 @@
+-- create database LocalGigspot_db;
+-- use LocalGigspot_db;
+-- -- create band and save user info
+-- create table band(
+--   id int not null auto_increment,
+--   band_name varchar(100) not null,
+--   band_bio varchar(100) not null,
+--   band_about varchar(100) not null,
+--   band_background longblob not null,
+--   band_profileimg longblob not null,
+--   band_listing varchar(100) not null
+-- );
+
+-- -- create venue and save user info
+-- create table venue(
+--   id int not null auto_increment,
+--   venue_name varchar(100) not null,
+--   venue_bio varchar(100) not null,
+--   venue_about varchar(100) not null,
+--   venue_background longblob not null,
+--   venue_profileimg longblob not null,
+--   venue_listing varchar(100) not null
+-- );
+
+-- --create band listing and save user info
+-- create table Blisting(
+--   id int not null auto_increment,
+--   bl_name varchar(100) not null,
+--   bl_bio varchar (100) not null,
+--   bl_img longblob not null
+-- );
+
+-- -- create venue listing and save user info
+-- create table Vlisting(
+--   id int not null auto_increment,
+--   vl_name varchar(100) not null,
+--   vl_bio varchar(100) not null,
+--   vl_img longblob not null
+-- );
