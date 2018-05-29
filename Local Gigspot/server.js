@@ -1,11 +1,9 @@
 var express = require('express');
 
 var app = express();
-var port = process.env.PORT || 3000;
+var PORT = process.env.PORT || 3000;
 
 var bodyParser = require('body-parser');
-var exphbs = require('express-handlebars');
-
 
 app.use(express.static(__dirname + '/public'));
 
@@ -14,26 +12,17 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 //Models
-var models = require('./app/models');
+var db = require('./app/models');
 
-//Sync Database
-models.sequelize.sync().then(function () {
-    console.log("Alright! Database is looking good!")
+// Routes
+require("./app/routes/band-api-routes.js")(app);
+require("./app/routes/htmlRoutes.js")(app);
 
-}).catch(function (err) {
-    console.log(err, 'Something is not right with the database...')
+// Syncing our sequelize models and then starting our Express app
 
-});
-
-//For handlebars
-app.set('views', './app/views');
-app.engine('hbs', exphbs({
-    extname: '.hbs'
-}));
-app.set('view engine', '.hbs');
-
-app.listen(port, function(err){
-  if (!err)
-    console.log(`App is running on localhost: ${port}...`);
-  else console.log(err)
-});
+db.sequelize.sync({ force: true }).then(function() {
+    app.listen(PORT, function() {
+      console.log("App listening on PORT " + PORT);
+    });
+  });
+  
