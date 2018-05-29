@@ -32,6 +32,7 @@
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="customnav">
                         <a class="dropdown-item" href="./Listings Page/indexvenue.html" target="_blank">Find Venues</a>
                         <a class="dropdown-item" href="./landing-page.html">Home</a>
+                        <a class="dropdown-item" href="#" onclick="signOut();">Sign Out</a>
                 </div>
             </div>
             <div class="navbar-translate">
@@ -72,6 +73,12 @@
                             <i class="fa fa-music"></i>
                             <p class="d-lg-none d-xl-none">Find Venues</p>
                         </a>
+                    </li>
+                    <li class="nav-item">
+                            <a class="nav-link" rel="tooltip" title="Sign Out" data-placement="bottom"  onclick="signOut();" href="#">
+                                <i class="fa fa-lock"></i>
+                                <p class="d-lg-none d-xl-none">Sign Out</p>
+                            </a>
                     </li>
                 </ul>
             </div>
@@ -120,7 +127,8 @@
     <!-- Band can add their music -->
                     <div class="wrap">
                         <div class="col-12" id="musicSample">
-                            <button type="button" class="btn btn-danger" id="addMusicsample">Add A Music Sample +</button>
+                            <input type="file" name="music" accept="audio/*">
+                            <button type="button" class="btn btn-danger" id="addMusicsample">Add Music Sample +</button>
                         </div>
                     </div>
                    
@@ -190,12 +198,14 @@
             <!-- Modal content -->
             <div class="modal-content">
                 <span class="close">&times;</span>
-                <div id="changeprofileimage">
+            <!-- user change profile image through file upload -->
+                <div id="changeprofileImage">
                     <p>Change Profile Image</p>
                     <input class="file-upload" type="file" accept="image/*"/>
                 </div>
                 <br>
-                <div id="profileName">
+            <!-- user change profile background image -->
+                <div id="changeprofileBackground">
                     <p>Change Background Image</p>
                     <input class="file-upload" type="file" accept="image/*"/>
                 </div>

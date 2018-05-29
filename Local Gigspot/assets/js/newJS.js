@@ -19,24 +19,34 @@ $('#changebandAbout').on('click', function(){
 
 
 // Modal control
-console.log(img);
 // Get the modal
 var modal = document.getElementById('myModal');
+var bandmodal = document.getElementById('bandModal');
+var venuemodal = document.getElementById('venueModal');
 
 // Get the button that opens the modal
-var btn = document.getElementById("editBandProfile");
+
 
 // Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+var bclose = document.getElementsByClassName('bclose')[0];
+var vclose = document.getElementsByClassName('vclose')[0];
 
 // When the user clicks on the button, open the modal 
-btn.onclick = function() {
-    modal.style.display = "block";
-}
-
+$('#editBandProfile').on('click', function(){
+    modal.style.display = 'block'
+})
+$('#bandlogin').on('click', function(){
+    bandmodal.style.display = 'block';
+})
+$('#venuelogin').on('click', function(){
+    venuemodal.style.display = 'block';
+})
 // When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-    modal.style.display = "none";
+bclose.onclick = function(){
+    bandmodal.style.display = 'none';
+}
+vclose.onclick = function(){
+    venuemodal.style.display = 'none';
 }
 
 // When the user clicks anywhere outside of the modal, close it
@@ -96,4 +106,28 @@ function saveEdits() {
     alert('Your changes were saved!');
     
 }
+
+// google sign in
+function onSignIn(googleUser) {
+    // Useful data for your client-side scripts:
+    var profile = googleUser.getBasicProfile();
+    console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+    console.log('Full Name: ' + profile.getName());
+    console.log('Given Name: ' + profile.getGivenName());
+    console.log('Family Name: ' + profile.getFamilyName());
+    console.log("Image URL: " + profile.getImageUrl());
+    console.log("Email: " + profile.getEmail());
+
+    // The ID token you need to pass to your backend:
+    var id_token = googleUser.getAuthResponse().id_token;
+    console.log("ID Token: " + id_token);
+  };
+
+// google sign out
+function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+  }
 
