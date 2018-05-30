@@ -1,15 +1,17 @@
 var express = require("express");
 var bodyParser = require("body-parser");
+var path = require('path');
 
 
 var app = express();
 var PORT = process.env.PORT || 3000;
+app.engine('.html', require('ejs').__express);
 
 var bodyParser = require('body-parser');
 
 
 // Serve static content for the app from the "public" directory in the application directory.
-app.use(express.static("public"));
+app.use(express.static("/public"));
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -18,29 +20,15 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 
-//Models
-var db = require('./app/models');
-
-// Routes
-require("./app/routes/band-api-routes.js")(app);
-require("./app/routes/htmlRoutes.js")(app);
-
-// Syncing our sequelize models and then starting our Express app
-
-db.sequelize.sync({ force: true }).then(function() {
-    app.listen(PORT, function() {
-      console.log("App listening on PORT " + PORT);
-    });
-  });
-  
 
 var exphbs = require("express");
 
 
-// Import routes and give the server access to them.
-var bandcontrol = require("./app/controllers/bandcontrollers");
-var venuecontrol = require('./app/controllers/venuecontrollers');
-app.use(bandcontrol, venuecontrol);
+
+require('./app/routes/band-api-routes')(app); 
+require('./app/routes/venue-api-routes')(app);
+require('./app/routes/htmlRoutes')(app);
+
 
 // Start our server so that it can begin listening to client requests.
 app.listen(PORT, function() {
