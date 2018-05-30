@@ -6,7 +6,7 @@
 var bandlistingData = require('../data/bandlisting-data');
 var path = require('path');
 
-
+var newBand = [];
 
 
 // ===============================================================================

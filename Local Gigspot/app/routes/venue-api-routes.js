@@ -6,7 +6,7 @@
 var venuelistingData = require('../data/venuelisting-data');
 var path = require('path');
 
-
+var newVenue = [];
 
 
 // ===============================================================================

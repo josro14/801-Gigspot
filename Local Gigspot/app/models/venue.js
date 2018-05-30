@@ -1,15 +1,37 @@
 module.exports = function(sequelize, DataTypes) {
+
     var Venue = sequelize.define("Venue", {
-        name: {
-            type: DataTypes.STRING,
+
+        id: {
+            autoIncrement: true,
+            primaryKey: true,
+            type: Sequelize.INTEGER
+        },
+
+        username: {
+            type: Sequelize.STRING,
+            notEmpty: true
+        },
+
+        venue_name: {
+            type: Sequelize.STRING,
             allowNull: false,
             validate: {
                 len: [1]
             }
         },
+        
         location: {
-            type: DataTypes.STRING,
+            type: Sequelize.STRING,
             len: [1]
+        },
+
+        about: {
+            type: Sequelize.TEXT
+        },
+
+        last_login: {
+            type: Sequelize.DATE
         }
 
         //any other defining attributes (columns) that would define any given band
