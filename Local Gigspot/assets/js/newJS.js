@@ -17,6 +17,15 @@ $('#changebandAbout').on('click', function(){
 })
 
 
+$('#changeVenueName').on('click', function(){
+    $("#venueName").attr("contenteditable","true");
+})
+$('#changebandBio').on('click', function(){
+    $("#bandBio").attr("contenteditable","true");
+})
+$('#changebandAbout').on('click', function(){
+    $('#bandAbout').attr('contenteditable', 'true');
+})
 
 // Modal control
 // Get the modal
