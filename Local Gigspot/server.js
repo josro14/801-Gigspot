@@ -33,7 +33,7 @@ db.sequelize.sync({ force: true }).then(function() {
     });
   });
   
-=======
+
 var exphbs = require("express");
 
 
