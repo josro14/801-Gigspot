@@ -32,3 +32,11 @@ body {
 .bg-dark{
   background-color: black!important;
 }
+#wrap{
+  margin-left:auto;
+  margin-right:auto;
+}
+#contactBand,#contactVenue{
+  background-color: #f96332!important;
+  border-color: transparent!important;
+}

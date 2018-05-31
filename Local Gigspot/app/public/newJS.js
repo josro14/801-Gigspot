@@ -28,6 +28,7 @@ var venuemodal = document.getElementById('venueModal');
 
 
 // Get the <span> element that closes the modal
+var close = document.getElementsByClassName('close')[0];
 var bclose = document.getElementsByClassName('bclose')[0];
 var vclose = document.getElementsByClassName('vclose')[0];
 
@@ -36,12 +37,22 @@ $('#editBandProfile').on('click', function(){
     modal.style.display = 'block'
 })
 $('#bandlogin').on('click', function(){
+  if(googleUser === true){
+  }
+  else{
     bandmodal.style.display = 'block';
+    }
+})
+$('.listing').on('click', function(){
+    modal.style.display = 'block';
 })
 $('#venuelogin').on('click', function(){
     venuemodal.style.display = 'block';
 })
 // When the user clicks on <span> (x), close the modal
+close.onclick = function(){
+    modal.style.display = 'none';
+}
 bclose.onclick = function(){
     bandmodal.style.display = 'none';
 }
@@ -108,7 +119,7 @@ function saveEdits() {
 }
 
 // google sign in
-function onSignIn(googleUser) {
+function bandLogin(googleUser) {
     // Useful data for your client-side scripts:
     var profile = googleUser.getBasicProfile();
     console.log("ID: " + profile.getId()); // Don't send this directly to your server!
@@ -122,6 +133,19 @@ function onSignIn(googleUser) {
     var id_token = googleUser.getAuthResponse().id_token;
     console.log("ID Token: " + id_token);
   };
+function venueLogin(googleUser){
+    var profile = googleUser.getBasicProfile();
+    console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+    console.log('Full Name: ' + profile.getName());
+    console.log('Given Name: ' + profile.getGivenName());
+    console.log('Family Name: ' + profile.getFamilyName());
+    console.log("Image URL: " + profile.getImageUrl());
+    console.log("Email: " + profile.getEmail());
+
+    // The ID token you need to pass to your backend:
+    var id_token = googleUser.getAuthResponse().id_token;
+    console.log("ID Token: " + id_token);
+}
 
 // google sign out
 function signOut() {

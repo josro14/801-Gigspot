@@ -4,6 +4,9 @@
 #Loginpage{
     background-color: #f96332!important;
 }
+#addMusicsample,#Listgig{
+    background-color: #f96332!important;
+}
 img {
     max-width: 100%;
     height: auto;
@@ -37,6 +40,11 @@ img {
 @media screen and (max-width: 760px){
     iframe{
         width: 540px!important;
+    }
+}
+@media screen and (max-width: 540px){
+    iframe{
+        width: 240px!important;
     }
 }
 @media screen and (max-width: 760px){
